@@ -28,6 +28,12 @@ class PagesTable extends AbstractMigration
      */
     public function change()
     {
-
+        $pages = $this->table('pages');
+        $pages->addColumn('title', 'string', ['limit' => 100]);
+        $pages->addColumn('slug', 'string', ['limit' => 100]);
+        $pages->addColumn('body', 'text');
+        $pages->addColumn('create_at', 'datetime');
+        $pages->addColumn('update_at', 'datetime');
+        $pages->create();
     }
 }

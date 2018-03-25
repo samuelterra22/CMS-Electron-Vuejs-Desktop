@@ -1,2 +1,4 @@
 .idea/
 package-lock.json
+app/package-lock.json
+server/composer.lock

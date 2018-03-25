@@ -26,11 +26,11 @@ Instalar o template utilizando vue:
 
 Depois de criado, instalar as dependências e executar a aplicação:
 
-``
-cd app
-npm install
-npm run dev
-``
+``cd app``
+
+``npm install``
+
+``npm run dev``
 
 Instalar Slim Skeleton (servidor)
 
@@ -39,3 +39,9 @@ Instalar Slim Skeleton (servidor)
 Depois de criado, rodar (levantar o servidor):
 
 ``php -S localhost:8000 -t public``
+
+Instalar os pacotes no server:
+
+``composer require illuminate/database illuminate/events``
+
+``composer require --dev robmorgan/phinx``

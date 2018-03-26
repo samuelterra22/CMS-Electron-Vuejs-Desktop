@@ -1,13 +1,13 @@
 <?php
 
-use App\Models\Pages;
+use App\Pages\Model;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 // Routes
 
 $app->get('/api/v1/pages', function (Request $request, Response $response, array $args) {
-    return $response->withJson(Pages::all());
+    return $response->withJson(Model::all());
 });
 
 $app->post('/api/v1/pages', function (Request $request, Response $response, array $args) {
@@ -17,5 +17,5 @@ $app->post('/api/v1/pages', function (Request $request, Response $response, arra
         'slug'  => filter_input(INPUT_POST, 'slug')
     ];
 
-    return $response->withJson(Pages::create($data), 201);
+    return $response->withJson(Model::create($data), 201);
 });

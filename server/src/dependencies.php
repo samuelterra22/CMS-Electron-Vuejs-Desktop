@@ -1,6 +1,7 @@
 <?php
 // DIC configuration
 
+use App\Pages\Domain;
 use Illuminate\Database\Capsule\Manager;
 
 $container = $app->getContainer();
@@ -30,3 +31,7 @@ $container['db'] = function ($c){
 
 
 $container['db'];
+
+$container['pages_domain'] = function ($c){
+    return new Domain;
+};

@@ -2,6 +2,7 @@
 // DIC configuration
 
 use App\Pages\Domain;
+use App\Pages\Responder;
 use Illuminate\Database\Capsule\Manager;
 
 $container = $app->getContainer();
@@ -34,4 +35,8 @@ $container['db'];
 
 $container['pages_domain'] = function ($c){
     return new Domain;
+};
+
+$container['pages_responder'] = function ($c){
+    return new Responder;
 };

@@ -1,18 +1,49 @@
-version: '2'
-
-volumes:
-    logs:
-        driver: local
-
+version: '3.4'
 services:
-    slim:
-        image: php:7-alpine
-        working_dir: /var/www
-        command: php -S 0.0.0.0:8080 -t public public/index.php
-        environment:
-            docker: "true"
-        ports:
-            - 8080:8080
-        volumes:
-            - .:/var/www
-            - logs:/var/www/logs
+  app:
+    image: ambientum/php:7.2-nginx
+    container_name: cms-app
+    ports:
+      - 80:8080
+    volumes:
+      - .:/var/www/app
+    links:
+      - mariadb
+      - redis
+    networks:
+      - cms
+
+  mariadb:
+    image: mariadb:10.3
+    container_name: cms-mariadb
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: cms
+      MYSQL_DATABASE: cms
+      MYSQL_USER: cms
+      MYSQL_PASSWORD: cms
+    volumes:
+      - cmsmariadb:/var/lib/mariadb
+    networks:
+      - cms
+
+  redis:
+    image: redis:4.0.8-alpine
+    container_name: cms-redis
+    command: --appendonly yes
+    volumes:
+      - cmsredis:/data
+    ports:
+      - 6379:6379
+    networks:
+      - cms
+
+networks:
+  cms:
+    driver: bridge
+volumes:
+  cmsmariadb:
+    driver: local
+  cmsredis:
+    driver: local

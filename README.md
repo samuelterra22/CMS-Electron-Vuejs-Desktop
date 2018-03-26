@@ -45,3 +45,21 @@ Instalar os pacotes no server:
 ``composer require illuminate/database illuminate/events``
 
 ``composer require --dev robmorgan/phinx``
+
+Configurar o phinx (init):
+
+``cd vendor``
+
+``vendor/bin/phinx init``
+
+Criar migrations:
+
+``vendor/bin/phinx create PagesTable``
+
+Aplicar as alterações nas migrations:
+
+``vendor/bin/phinx migrate``
+
+Caso seja no docker:
+
+``docker-compose run app vendor/bin/phinx migrate``

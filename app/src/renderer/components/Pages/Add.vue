@@ -17,6 +17,28 @@
                             <small>Inclusão de nova página no site</small>
                         </h5>
 
+                        <form @submit.prevent="save()">
+                            <div class="form-group">
+                                <label for="title">Título</label>
+                                <input id="title" type="text" class="form-control" placeholder="Título da página"
+                                       v-model="page.title"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="slug">URL</label>
+                                <input id="slug" type="text" class="form-control" placeholder="Url da página"
+                                       v-model="page.slug"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="body">Contúdo</label>
+                                <textarea id="body" class="form-control" rows="3" v-model="page.body">
+                                </textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+
+                        </form>
 
                     </div>
                 </div>
@@ -24,12 +46,16 @@
 
         </div>
     </div>
-    
+
 </template>
 
 <script>
   export default {
-    name: 'add'
+    data () {
+      return {
+        page: {}
+      }
+    }
   }
 </script>
 

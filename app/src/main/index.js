@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, Menu } from 'electron'
 
 /**
  * Set `__static` path to static files in production
@@ -20,9 +20,12 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 720,
     useContentSize: true,
-    width: 1000
+    width: 1200,
+    frame: false
+    // title: 'CMD Electron + PHP',
+    // fullscreen: true
   })
 
   mainWindow.loadURL(winURL)
@@ -30,6 +33,20 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  let menu = Menu.buildFromTemplate([
+    {
+      label: 'Páginas',
+      submenu: [
+        {
+          'label': 'Nova',
+          'role': 'p1'
+        }
+      ]
+    }
+  ])
+
+  Menu.setApplicationMenu(menu)
 }
 
 app.on('ready', createWindow)

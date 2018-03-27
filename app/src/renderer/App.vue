@@ -22,7 +22,11 @@
             </nav>
         </header>
 
-        <router-view></router-view>
+        <div id="content">
+            <transition enter-active-class="animated fadeIn" leave-active-class="animated zoomOut">
+                <router-view></router-view>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -67,5 +71,14 @@
     #header .btn {
         margin-bottom: 10px;
         -webkit-app-region: no-drag;
+    }
+
+    #content{
+        position: relative;
+    }
+
+    #content .animated{
+        position: absolute;
+        top: 0;
     }
 </style>

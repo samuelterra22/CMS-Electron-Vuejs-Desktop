@@ -63,3 +63,7 @@ Aplicar as alterações nas migrations:
 Caso seja no docker:
 
 ``docker-compose run app vendor/bin/phinx migrate``
+
+Instalar Bootstrap, font-awesome e animate.css:
+
+``npm install bootstrap@4.0.0-beta.3 font-awesome@4.7.0 animate.css@3.5.2 --save``

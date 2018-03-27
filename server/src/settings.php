@@ -18,10 +18,10 @@ return [
 
         'db' => [
             'driver'    => 'mysql',
-            'host'      => 'mariadb',
+            'host'      => 'localhost',
             'database'  => 'cms',
-            'username'  => 'cms',
-            'password'  => 'cms',
+            'username'  => 'root',
+            'password'  => 'root',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

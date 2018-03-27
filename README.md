@@ -66,4 +66,8 @@ Caso seja no docker:
 
 Instalar Bootstrap, font-awesome e animate.css:
 
-``npm install bootstrap@4.0.0-beta.3 font-awesome@4.7.0 animate.css@3.5.2 --save``
+``npm install bootstrap@4.0.0-beta.3 font-awesome@4.7.
+
+Instalar Sweet Alert
+
+``npm install sweetalert2@7.4.0 --save``

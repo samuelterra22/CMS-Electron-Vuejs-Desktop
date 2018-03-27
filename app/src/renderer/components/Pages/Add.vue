@@ -50,6 +50,8 @@
 </template>
 
 <script>
+  import swal from 'sweetalert2'
+
   export default {
     data () {
       return {
@@ -59,6 +61,25 @@
     methods: {
       save () {
         this.$store.dispatch('createPage', this.page)
+          .then((res) => {
+            swal({
+              title: 'Salvo com sucesso!',
+              text: 'Sua nova página já está dosponível.',
+              type: 'success',
+              confirmButtonText: 'ok'
+            })
+            this.$router.push({path: '/pages'})
+          })
+          .catch((err) => {
+            if (err) {
+              swal({
+                title: 'Algo deu errado!',
+                text: 'Uma situação inesperado ocorreu no servidor, por favor, entre em contato com o administrador.',
+                type: 'error',
+                confirmButtonText: 'Eu entendo'
+              })
+            }
+          })
       }
     }
   }

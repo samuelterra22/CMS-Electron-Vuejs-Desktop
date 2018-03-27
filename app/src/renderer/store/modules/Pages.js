@@ -23,10 +23,10 @@ const actions = {
   createPage (context, data) {
     let qs = require('qs')
     data = qs.stringify(data)
-    window.axios.post('http://localhost:8000/api/v1/pages', data).then(
-      (res) => {
-        context.commit('addToPagesList', res)
-      }
+    return window.axios.post('http://localhost:8000/api/v1/pages', data).then((res) => {
+      context.commit('addToPagesList', res)
+      return res
+    }
     )
   }
 }

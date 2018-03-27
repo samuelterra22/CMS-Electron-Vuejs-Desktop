@@ -11,11 +11,12 @@ import 'animate.css/animate.css'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 window.axios = axios
+window.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  components: { App },
+  components: {App},
   router,
   store,
   template: '<App/>'

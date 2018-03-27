@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="body">Contúdo</label>
+                                <label for="body">Conteúdo</label>
                                 <textarea id="body" class="form-control" rows="3" v-model="page.body">
                                 </textarea>
                             </div>
@@ -54,6 +54,11 @@
     data () {
       return {
         page: {}
+      }
+    },
+    methods: {
+      save () {
+        this.$store.dispatch('createPage', this.page)
       }
     }
   }

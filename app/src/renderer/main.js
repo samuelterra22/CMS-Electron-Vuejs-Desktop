@@ -10,7 +10,7 @@ import 'font-awesome/css/font-awesome.css'
 import 'animate.css/animate.css'
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
-Vue.http = Vue.prototype.$http = axios
+window.axios = axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
